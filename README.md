@@ -20,7 +20,7 @@ AI 초안을 “사람답게” 만드는 범용 humanizer는 이미 많다. 문
 **1. 설치.** 이 저장소를 개인 스킬 폴더로 연결한다.
 
 ```bash
-git clone https://github.com/{계정}/humanizer-skill-creator.git
+git clone https://github.com/imakerjun/humanizer-skill-creator.git
 ln -s "$PWD/humanizer-skill-creator" ~/.claude/skills/humanizer-skill-creator
 ```
 
