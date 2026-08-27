@@ -1,0 +1,33 @@
+{
+  "case": "03-클린대조군",
+  "axes": ["분별"],
+  "tone": "~다",
+  "tone_forbidden_regex": "(습니다|합니다|세요|해요)\\s",
+  "planted": [],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "실험은 이렇게 했다.",
+      "match": "실험은 이렇게 했다.",
+      "reason": "저자가 채택한 수정본의 짧은 전환. 과잉 적용하면 FAIL."
+    },
+    {
+      "id": "t2",
+      "span": "열에 여덟이 A를 골랐다.",
+      "match": "열에 여덟이 A를 골랐다.",
+      "reason": "구체 수치. 사람 냄새를 위해 바꾸면 FAIL."
+    },
+    {
+      "id": "t3",
+      "span": "열에 둘도 되지 않았다.",
+      "match": "열에 둘도 되지 않았다.",
+      "reason": "구체 수치. 윤문하면 FAIL."
+    }
+  ],
+  "known_borderline": [],
+  "thresholds": {
+    "recall_min": null,
+    "max_trap_fp": 0,
+    "max_total_flags": 3
+  }
+}

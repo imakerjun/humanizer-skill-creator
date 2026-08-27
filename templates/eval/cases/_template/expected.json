@@ -1,0 +1,27 @@
+{
+  "case": "{{CASE_SLUG}}",
+  "axes": ["탐지", "분별"],
+  "tone": "{{TONE_LABEL}}",
+  "planted": [
+    {
+      "id": "p1",
+      "span": "문장에서 냄새가 있는 구 전체",
+      "match": "짧은고유부분",
+      "type": "체크리스트 유형명",
+      "note": "왜 planted인지"
+    }
+  ],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "보존해야 하는 구 전체",
+      "match": "짧은고유부분",
+      "reason": "저자가 남긴 이유. 같은 표면형이 다른 문맥이면 그 차이를 적는다."
+    }
+  ],
+  "known_borderline": [],
+  "thresholds": {
+    "recall_min": 0.66,
+    "max_trap_fp": 0
+  }
+}

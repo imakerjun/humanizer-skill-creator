@@ -1,0 +1,42 @@
+{
+  "case": "01-플랫폼-접속",
+  "axes": ["탐지", "분별"],
+  "tone": "~다",
+  "tone_forbidden_regex": "(습니다|합니다|세요|해요)\\s",
+  "planted": [
+    {
+      "id": "p1",
+      "span": "물론 x를 보면 실험 글이 많고",
+      "match": "x를 보면",
+      "type": "플랫폼명",
+      "note": "소문자 x는 정식명 X로"
+    },
+    {
+      "id": "p2",
+      "span": "하지만 threads에 올린 글은 브랜딩이 많다",
+      "match": "threads에 올린",
+      "type": "플랫폼명",
+      "note": "소문자 threads는 Threads로"
+    },
+    {
+      "id": "p3",
+      "span": "물론 x를 보면 실험 글이 많고, 하지만",
+      "match": "물론 x를 보면",
+      "type": "접속 남용",
+      "note": "물론 … 하지만 … 줄임"
+    }
+  ],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "에이전트 로그는 사용자의 질문을 따라간다.",
+      "match": "에이전트 로그는 사용자의 질문을 따라간다.",
+      "reason": "짧은 단정으로 연 첫 문장은 그대로 유지한다. 장면·예시로 바꾸면 FAIL."
+    }
+  ],
+  "known_borderline": [],
+  "thresholds": {
+    "recall_min": 0.66,
+    "max_trap_fp": 0
+  }
+}

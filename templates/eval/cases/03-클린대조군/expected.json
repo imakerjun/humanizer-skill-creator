@@ -1,0 +1,20 @@
+{
+  "case": "03-클린대조군",
+  "axes": ["분별"],
+  "tone": "{{TONE_LABEL}}",
+  "planted": [],
+  "traps": [
+    {
+      "id": "t1",
+      "span": "저자가 쓴 좋은 문장 일부",
+      "match": "짧은고유부분",
+      "reason": "이미 사람 글. 표면이 시드와 닮아도 적용하면 FAIL."
+    }
+  ],
+  "known_borderline": [],
+  "thresholds": {
+    "recall_min": null,
+    "max_trap_fp": 0,
+    "max_total_flags": 3
+  }
+}
