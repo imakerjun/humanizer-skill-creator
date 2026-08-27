@@ -10,7 +10,9 @@ metadata:
 
 남의 글을 “사람답게” 만드는 범용 humanizer가 아니다. **이 사람의 글에서 AI 티만 걷고, 이 사람이 일부러 쓰는 말은 남기는** 퇴고 스킬을 만드는 절차다.
 
-동료 각자가 자기 말투 스킬을 갖는 것이 목표다. 사람이 읽을 안내는 [README.md](README.md). 완성 예시: [skills/jun-sns-voice/](skills/jun-sns-voice/SKILL.md).
+동료 각자가 자기 말투 스킬을 갖는 것이 목표다. 사람이 읽을 안내는 [README.md](README.md). 커맨드로 들어왔을 때의 진입 규칙은 [commands/말투.md](commands/말투.md), 평가 실행은 [commands/말투-평가.md](commands/말투-평가.md).
+
+이 저장소에는 완성된 개인 스킬을 두지 않는다. 산출은 각자 개인 폴더에 생긴다 — 남의 말투를 정본처럼 섞지 않기 위해서다.
 
 성공 create의 Input/Output: [examples.md](examples.md). 대조 절차: [references/contrast-mining.md](references/contrast-mining.md). 시드(필터 재료): [references/seed-tells.md](references/seed-tells.md). 평가셋 4축: [references/eval-protocol.md](references/eval-protocol.md). eval을 실제로 돌리는 법: [eval/RUN.md](eval/RUN.md). 생성 스킬 골격: [references/skill-anatomy.md](references/skill-anatomy.md). 설계 출처: [references/community-lessons.md](references/community-lessons.md).
 
@@ -36,7 +38,7 @@ metadata:
 ## 산출물 (create가 끝나면 이 폴더가 있다)
 
 ```
-skills/{skill-name}/
+{skill-name}/
 ├── SKILL.md                 # 퇴고 절차. 체크리스트가 정본
 ├── STYLE-PROFILE.md         # 관찰된 문체 사실 (형용사 인상 아님)
 ├── eval/
@@ -50,7 +52,9 @@ skills/{skill-name}/
 
 골격은 [templates/](templates/)를 복사한 뒤 채운다.
 
-**저장 위치.** 기본은 이 저장소의 `skills/{name}/`이다 — 동료들이 서로 참고할 수 있어야 하니까. 쓰려면 거기서 개인 스킬 폴더로 심링크한다(README의 「설치」). 저자가 개인 폴더만 원하면 `~/.claude/skills/{name}/`. **어느 쪽이든 쓰기 전에 확인한다.** 남의 스킬을 덮어쓰지 않는다.
+**저장 위치.** 기본은 `~/.claude/skills/{name}/`이다. 프로젝트 안에서만 쓸 스킬이면 그 프로젝트의 `.claude/skills/{name}/`. **쓰기 전에 한 번 확인한다.** 이 저장소 안에 만들지 않는다. 남의 스킬을 덮어쓰지 않는다.
+
+이름은 소문자·숫자·하이픈, 저자나 장르가 보이게(`minji-blog-voice`). `humanizer` 단독은 범용과 충돌한다.
 
 ## 실행 모드
 
