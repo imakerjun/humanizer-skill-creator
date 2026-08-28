@@ -32,6 +32,24 @@ unlink_ours() {
   esac
 }
 
+# 이 저장소를 가리키지만 원본이 사라진 링크를 지운다 (리네임·삭제 뒤처리).
+# 설치 때마다 돈다 — git pull 은 파일 추가는 옮겨 오지만 삭제는 옮겨 오지 않는다.
+# $1: 훑을 디렉터리 (예: ~/.claude/commands)
+prune_stale() {
+  local dir="$1" f
+  [ -d "$dir" ] || return 0
+  # (a) 심링크만 훑는다. find -print0 이라 이름에 공백이 있어도 안전하고,
+  #     빈 디렉터리에서도 글롭 실패 없이 그냥 0건이 된다.
+  while IFS= read -r -d "" f; do
+    if [ -e "$f" ]; then        # (c) 대상이 살아 있으면 둔다 (-e 는 링크를 따라간다)
+      continue
+    fi
+    case "$(readlink "$f")" in  # (b) 우리 저장소를 가리키던 것만
+      "$REPO"|"$REPO"/*) rm "$f"; echo "  − 끊긴 링크 $f" ;;
+    esac
+  done < <(find "$dir" -maxdepth 1 -type l -print0 2>/dev/null)
+}
+
 if [ "$MODE" = "--uninstall" ]; then
   echo "제거"
   for t in "${skill_targets[@]}"; do unlink_ours "$t/$NAME"; done
@@ -57,6 +75,7 @@ done
 
 for t in "${cmd_targets[@]}"; do
   mkdir -p "$t"
+  prune_stale "$t"   # 리네임된 옛 커맨드의 끊긴 링크를 먼저 치운다
   for f in "$REPO"/commands/*.md; do
     base="$(basename "$f")"
     if [ -e "$t/$base" ] && [ ! -L "$t/$base" ]; then
@@ -78,7 +97,7 @@ fi
 cat <<'EOF'
 
 시작하기
-  Claude Code를 다시 열고 /말투 를 실행한다.
+  Claude Code를 다시 열고 /말투-만들기 를 실행한다.
   (커맨드 없이 "내 말투 스킬 만들어 줘"라고 해도 스킬이 켜진다.)
 
 준비물 두 개
