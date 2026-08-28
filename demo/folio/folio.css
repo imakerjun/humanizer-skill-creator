@@ -1,0 +1,9 @@
+/* ============================================================================
+   Folio core — notion-design-system 정본 복사본 (2026-08-29)
+   Upstream: https://github.com/imakerjun/notion-design-system  css/
+   값을 여기서 고치지 않는다. 정본을 먼저 고치고 다시 복사한다.
+   ============================================================================ */
+
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./components.css";

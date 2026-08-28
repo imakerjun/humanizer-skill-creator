@@ -1,0 +1,467 @@
+/* ============================================================================
+   Folio Tokens — --fl-* 커스텀 프로퍼티. <html class="folio folio-light|folio-dark">
+   Source: claude.ai/design 「노션 디자인 시스템」(Folio, 오프라인 번들 2026-08-27)
+   Canonical: projects/notion-design-system
+   ============================================================================ */
+
+/* ============================================================================
+   Folio Design System — Tokens
+   Document-first workspace UI kit. Warm off-white surfaces, slate-blue accent,
+   subtle borders, generous breathing room.
+   Usage: <html class="folio folio-light"> or <html class="folio folio-dark">
+   ============================================================================ */
+
+
+/* Pretendard: css/fonts.css (CDN). 오프라인 번들의 @font-face UUID는 제거. */
+
+.folio,
+.folio * {
+  box-sizing: border-box;
+}
+
+/* ---- Base font + reset ----------------------------------------------------*/
+.folio {
+  --fl-font-sans:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans KR", sans-serif;
+  --fl-font-mono:
+    ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas,
+    "Liberation Mono", monospace;
+  --fl-font-serif: "Source Serif Pro", "Noto Serif KR", Georgia, serif;
+
+  font-family: var(--fl-font-sans);
+  font-feature-settings: "ss03", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  color: var(--fl-text);
+  background: var(--fl-bg);
+}
+
+/* ============================================================================
+   LIGHT THEME
+   ============================================================================ */
+.folio-light,
+.folio:not(.folio-dark) {
+  /* --- Surfaces (white-forward, layered with subtle warm tint) ---------- */
+  --fl-bg: #ffffff; /* page background — Notion-style white */
+  --fl-surface: #ffffff; /* cards, popovers, modals */
+  --fl-surface-2: #f7f6f3; /* sidebar, secondary surfaces */
+  --fl-surface-3: #f1f0ec; /* sunken / inset / code */
+  --fl-overlay: rgba(15, 15, 15, 0.32);
+
+  /* --- Interactive states (apply on top of any surface) ----------------- */
+  --fl-hover: rgba(55, 53, 47, 0.06);
+  --fl-hover-strong: rgba(55, 53, 47, 0.09);
+  --fl-active: rgba(55, 53, 47, 0.12);
+  --fl-selected: rgba(35, 131, 226, 0.12);
+
+  /* --- Text -------------------------------------------------------------- */
+  --fl-text: #37352f;
+  --fl-text-secondary: #525049; /* darker — legible for body context */
+  --fl-text-tertiary: #787774; /* Notion-matched, for meta only */
+  --fl-text-quaternary: #9b9a97; /* labels, hints */
+  --fl-text-placeholder: #b9b8b3;
+  --fl-text-disabled: #b9b8b3;
+  --fl-text-on-accent: #ffffff;
+  --fl-text-link: #2d6fc5;
+
+  /* --- Borders ----------------------------------------------------------- */
+  --fl-border-subtle: rgba(15, 14, 12, 0.06);
+  --fl-border: rgba(15, 14, 12, 0.10);
+  --fl-border-strong: rgba(15, 14, 12, 0.18);
+  --fl-border-focus: #3d6ff2;
+
+  /* --- Accent (slate-blue) ---------------------------------------------- */
+  --fl-accent-50: #ecf2ff;
+  --fl-accent-100: #d9e3ff;
+  --fl-accent-200: #b3c5ff;
+  --fl-accent-400: #6a8cff;
+  --fl-accent: #3d6ff2; /* primary brand */
+  --fl-accent-600: #2d5bd9;
+  --fl-accent-700: #1f47b3;
+
+  /* --- Semantic ---------------------------------------------------------- */
+  --fl-success: #2f9e6b;
+  --fl-success-bg: #e7f5ee;
+  --fl-warning: #cb912f;
+  --fl-warning-bg: #faf3dd;
+  --fl-danger: #d8514a;
+  --fl-danger-bg: #fbe9e7;
+  --fl-info: #3d6ff2;
+  --fl-info-bg: #ecf2ff;
+
+  /* --- Block tints (text colors) — Notion-authentic text hues -----------*/
+  --fl-tint-gray: #787774;
+  --fl-tint-brown: #976d57;
+  --fl-tint-orange: #cc782f;
+  --fl-tint-yellow: #cb912f;
+  --fl-tint-green: #548164;
+  --fl-tint-blue: #487ca5;
+  --fl-tint-purple: #8a67ab;
+  --fl-tint-pink: #b35488;
+  --fl-tint-red: #c4554d;
+
+  /* --- Chart palette — brighter, cleaner data-viz hues (Notion-flavored).
+     Signature Notion blue #2383E2 leads; the rest share high chroma so series
+     read as vivid and distinct rather than muddy. -----------------------*/
+  --fl-chart-gray: #9b9a97;
+  --fl-chart-brown: #a8724e;
+  --fl-chart-orange: #f1942c;
+  --fl-chart-yellow: #e5b228;
+  --fl-chart-green: #1fa774;
+  --fl-chart-blue: #2383e2;
+  --fl-chart-purple: #9d68d3;
+  --fl-chart-pink: #e255a1;
+  --fl-chart-red: #e5484d;
+
+  /* --- Inverse surface — tooltips, toasts, snackbars -------------------- */
+  --fl-inverse-surface: #2a2925;
+  --fl-inverse-text: #f6f4f1;
+
+  /* --- Block tint backgrounds — Notion-authentic subtle fills ----------- */
+  --fl-tint-gray-bg: #f1f1ef;
+  --fl-tint-brown-bg: #f3eeee;
+  --fl-tint-orange-bg: #f8ecdf;
+  --fl-tint-yellow-bg: #faf3dd;
+  --fl-tint-green-bg: #eef3ed;
+  --fl-tint-blue-bg: #e9f3f7;
+  --fl-tint-purple-bg: #f6f3f8;
+  --fl-tint-pink-bg: #f9f2f5;
+  --fl-tint-red-bg: #faecec;
+
+  /* --- Shadows ----------------------------------------------------------- */
+  --fl-shadow-xs: 0 1px 2px rgba(15, 14, 12, 0.04);
+  --fl-shadow-sm: 0 1px 3px rgba(15, 14, 12, 0.06), 0 1px 2px rgba(15, 14, 12, 0.04);
+  --fl-shadow-md:
+    0 2px 4px rgba(15, 14, 12, 0.04),
+    0 4px 12px rgba(15, 14, 12, 0.08);
+  --fl-shadow-lg:
+    0 4px 8px rgba(15, 14, 12, 0.04),
+    0 12px 32px rgba(15, 14, 12, 0.12);
+  --fl-shadow-xl:
+    0 8px 16px rgba(15, 14, 12, 0.06),
+    0 24px 48px rgba(15, 14, 12, 0.16);
+
+  color-scheme: light;
+}
+
+/* ============================================================================
+   DARK THEME
+   ============================================================================ */
+.folio-dark {
+  --fl-bg: #1a1918;
+  --fl-surface: #232220;
+  --fl-surface-2: #1f1e1c;
+  --fl-surface-3: #2b2a27;
+  --fl-overlay: rgba(0, 0, 0, 0.6);
+
+  --fl-hover: rgba(255, 253, 248, 0.05);
+  --fl-hover-strong: rgba(255, 253, 248, 0.09);
+  --fl-active: rgba(255, 253, 248, 0.13);
+  --fl-selected: rgba(106, 140, 255, 0.18);
+
+  --fl-text: #e8e6e1;
+  --fl-text-secondary: #c0bdb5; /* darker variant — readable for body context */
+  --fl-text-tertiary: #8e8a82;
+  --fl-text-quaternary: #6f6b62;
+  --fl-text-placeholder: #5a564f;
+  --fl-text-disabled: #5a564f;
+  /* dark theme accent is a LIGHT blue (#6a8cff); white text on it fails AA
+     (3.08:1, dropping to 1.7:1 on hover/active). Dark navy text passes
+     comfortably across all states (5.2 → 9.4:1). */
+  --fl-text-on-accent: #15203f;
+  --fl-text-link: #8aa9ff;
+
+  --fl-border-subtle: rgba(255, 253, 248, 0.06);
+  --fl-border: rgba(255, 253, 248, 0.10);
+  --fl-border-strong: rgba(255, 253, 248, 0.18);
+  --fl-border-focus: #6a8cff;
+
+  --fl-accent-50: #1a2547;
+  --fl-accent-100: #1f3061;
+  --fl-accent-200: #2a4a9e;
+  --fl-accent-400: #6a8cff;
+  --fl-accent: #6a8cff;
+  --fl-accent-600: #8aa9ff;
+  --fl-accent-700: #b3c5ff;
+
+  --fl-success: #5fc18e;
+  --fl-success-bg: #1c3528;
+  --fl-warning: #e3b341;
+  --fl-warning-bg: #372e20;
+  --fl-danger: #e87b75;
+  --fl-danger-bg: #3a201d;
+  --fl-info: #8aa9ff;
+  --fl-info-bg: #1a2547;
+
+  --fl-tint-gray: #9b9b9b;
+  --fl-tint-brown: #a27763;
+  --fl-tint-orange: #cb7b37;
+  --fl-tint-yellow: #d4a23c;
+  --fl-tint-green: #4f9768;
+  --fl-tint-blue: #447acb;
+  --fl-tint-purple: #865dbb;
+  --fl-tint-pink: #ba4a78;
+  --fl-tint-red: #be524b;
+
+  /* Chart palette — brighter data-viz hues for dark mode (lifted for contrast) */
+  --fl-chart-gray: #9e9e97;
+  --fl-chart-brown: #bc8e6e;
+  --fl-chart-orange: #f4a03c;
+  --fl-chart-yellow: #edc04a;
+  --fl-chart-green: #34b98a;
+  --fl-chart-blue: #4d9de8;
+  --fl-chart-purple: #b084e9;
+  --fl-chart-pink: #eb6fb1;
+  --fl-chart-red: #ec5f63;
+
+  --fl-inverse-surface: #ffffff;
+  --fl-inverse-text: #2a2925;
+
+  --fl-tint-gray-bg: rgba(168, 165, 159, 0.14);
+  --fl-tint-brown-bg: rgba(217, 163, 122, 0.14);
+  --fl-tint-orange-bg: rgba(232, 168, 107, 0.14);
+  --fl-tint-yellow-bg: rgba(232, 197, 99, 0.14);
+  --fl-tint-green-bg: rgba(127, 207, 163, 0.14);
+  --fl-tint-blue-bg: rgba(138, 169, 255, 0.16);
+  --fl-tint-purple-bg: rgba(179, 155, 245, 0.16);
+  --fl-tint-pink-bg: rgba(232, 143, 189, 0.14);
+  --fl-tint-red-bg: rgba(232, 138, 133, 0.14);
+
+  --fl-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --fl-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --fl-shadow-md:
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.5);
+  --fl-shadow-lg:
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 12px 32px rgba(0, 0, 0, 0.6);
+  --fl-shadow-xl:
+    0 8px 16px rgba(0, 0, 0, 0.5),
+    0 24px 48px rgba(0, 0, 0, 0.7);
+
+  color-scheme: dark;
+}
+
+/* ============================================================================
+   SCALES — shared across themes
+   ============================================================================ */
+.folio {
+  /* --- Type scale (px) — Korean-readable. Block body uses --lg(17px). ----*/
+  --fl-text-2xs: 11px;
+  --fl-text-xs: 12px;
+  --fl-text-sm: 13px;
+  --fl-text-base: 14px;
+  --fl-text-md: 15px;
+  --fl-text-lg: 17px; /* page body / block content — was 16, +1 for Korean */
+  --fl-text-xl: 19px;
+  --fl-text-2xl: 24px;
+  --fl-text-3xl: 30px;
+  --fl-text-4xl: 38px;
+  --fl-text-5xl: 46px;
+
+  /* --- Line heights — tuned for Korean -------------------------------- */
+  --fl-leading-tight: 1.25;
+  --fl-leading-snug: 1.4;
+  --fl-leading-normal: 1.6; /* was 1.55 — slightly more air for Hangul */
+  --fl-leading-relaxed: 1.75;
+
+  /* --- Font weights ------------------------------------------------------ */
+  --fl-weight-regular: 400;
+  --fl-weight-medium: 500;
+  --fl-weight-semibold: 600;
+  --fl-weight-bold: 700;
+
+  /* --- Spacing (4px base) ----------------------------------------------- */
+  --fl-space-0: 0;
+  --fl-space-1: 2px;
+  --fl-space-2: 4px;
+  --fl-space-3: 6px;
+  --fl-space-4: 8px;
+  --fl-space-5: 12px;
+  --fl-space-6: 16px;
+  --fl-space-7: 20px;
+  --fl-space-8: 24px;
+  --fl-space-9: 32px;
+  --fl-space-10: 40px;
+  --fl-space-11: 48px;
+  --fl-space-12: 64px;
+  --fl-space-13: 80px;
+  --fl-space-14: 96px;
+
+  /* --- Radius ------------------------------------------------------------ */
+  --fl-radius-xs: 3px;
+  --fl-radius-sm: 4px;
+  --fl-radius: 6px;
+  --fl-radius-md: 8px;
+  --fl-radius-lg: 12px;
+  --fl-radius-xl: 16px;
+  --fl-radius-2xl: 20px;
+  --fl-radius-full: 9999px;
+
+  /* --- Motion ------------------------------------------------------------ */
+  --fl-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fl-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --fl-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --fl-ease-spring: cubic-bezier(0.17, 0.86, 0.32, 1.28);
+
+  --fl-duration-fast: 120ms;
+  --fl-duration-normal: 180ms;
+  --fl-duration-slow: 280ms;
+
+  /* --- Layout ------------------------------------------------------------ */
+  --fl-sidebar-w: 248px;
+  --fl-topbar-h: 44px;
+  --fl-page-max-w: 720px;
+  --fl-page-max-w-wide: 960px;
+  --fl-block-indent: 24px;
+  --fl-block-handle-w: 24px;
+
+  /* --- Z-index scale (v0.5) — predictable layering --------------------- */
+  --fl-z-base: 1;
+  --fl-z-sticky: 100;          /* sticky table headers, toolbars */
+  --fl-z-dropdown: 200;        /* select, menu, combobox */
+  --fl-z-popover: 300;         /* tooltips, hover cards */
+  --fl-z-overlay: 400;         /* modal scrim, drawer scrim */
+  --fl-z-modal: 500;           /* dialog content */
+  --fl-z-toast: 600;           /* toast / notification */
+  --fl-z-command: 700;         /* ⌘K, slash menu */
+  --fl-z-coachmark: 800;       /* onboarding spotlights */
+
+  /* --- Focus ring (v0.5) — single source of truth for a11y outlines ---- */
+  --fl-focus-ring-w: 2px;
+  --fl-focus-ring-offset: 2px;
+  --fl-focus-ring-color: var(--fl-accent);
+  --fl-focus-ring: 0 0 0 var(--fl-focus-ring-w) var(--fl-bg),
+                   0 0 0 calc(var(--fl-focus-ring-w) + var(--fl-focus-ring-offset)) var(--fl-focus-ring-color);
+
+  /* --- Density (v0.5) — toggle data-density on a root container -------- */
+  --fl-density-row-h: 32px;     /* default = comfortable */
+  --fl-density-row-pad-y: 6px;
+  --fl-density-block-gap: 4px;
+  --fl-density-section-gap: 16px;
+}
+
+/* Density modes — set [data-density="compact|comfortable|spacious"] on any folio container */
+.folio [data-density="compact"] {
+  --fl-density-row-h: 26px;
+  --fl-density-row-pad-y: 3px;
+  --fl-density-block-gap: 2px;
+  --fl-density-section-gap: 12px;
+}
+.folio [data-density="spacious"] {
+  --fl-density-row-h: 40px;
+  --fl-density-row-pad-y: 10px;
+  --fl-density-block-gap: 8px;
+  --fl-density-section-gap: 24px;
+}
+
+/* ============================================================================
+   Focus-visible — applies globally to interactive folio elements
+   ============================================================================ */
+.folio :is(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--fl-focus-ring);
+  border-radius: inherit;
+}
+
+/* ============================================================================
+   Reusable keyframes (v0.5) — for popovers, sheets, AI streaming, etc.
+   Use via animation-name: fl-fade-in / fl-slide-up / fl-pulse / fl-shimmer
+   ============================================================================ */
+@keyframes fl-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fl-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fl-slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fl-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fl-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@keyframes fl-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes fl-caret-blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .folio *, .folio *::before, .folio *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================================
+   Typography utility classes
+   ============================================================================ */
+.fl-display {
+  font-size: var(--fl-text-5xl);
+  font-weight: var(--fl-weight-bold);
+  line-height: var(--fl-leading-tight);
+  letter-spacing: -0.025em;
+}
+.fl-h1 {
+  font-size: var(--fl-text-3xl);
+  font-weight: var(--fl-weight-bold);
+  line-height: var(--fl-leading-tight);
+  letter-spacing: -0.015em;
+}
+.fl-h2 {
+  font-size: var(--fl-text-2xl);
+  font-weight: var(--fl-weight-semibold);
+  line-height: var(--fl-leading-snug);
+  letter-spacing: -0.01em;
+}
+.fl-h3 {
+  font-size: var(--fl-text-xl);
+  font-weight: var(--fl-weight-semibold);
+  line-height: var(--fl-leading-snug);
+}
+.fl-body {
+  font-size: var(--fl-text-base);
+  font-weight: var(--fl-weight-regular);
+  line-height: var(--fl-leading-normal);
+}
+.fl-body-sm {
+  font-size: var(--fl-text-sm);
+  line-height: var(--fl-leading-normal);
+}
+.fl-caption {
+  font-size: var(--fl-text-xs);
+  line-height: var(--fl-leading-snug);
+  color: var(--fl-text-secondary);
+}
+.fl-mono {
+  font-family: var(--fl-font-mono);
+  font-size: 0.92em;
+}
+.fl-serif {
+  font-family: var(--fl-font-serif);
+}
+
+/* selection color */
+.folio ::selection {
+  background: var(--fl-accent-100);
+  color: var(--fl-text);
+}
+.folio-dark ::selection {
+  background: var(--fl-accent-100);
+  color: var(--fl-text);
+}

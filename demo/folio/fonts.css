@@ -1,0 +1,7 @@
+/* ============================================================================
+   Folio Fonts — Pretendard Variable (CDN)
+   SIL Open Font License 1.1 — https://github.com/orioncactus/pretendard
+   오프라인 번들의 내장 woff/woff2(~18MB)는 저장소에 두지 않는다.
+   ============================================================================ */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
