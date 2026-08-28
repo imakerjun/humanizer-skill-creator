@@ -10,15 +10,24 @@ metadata:
 
 남의 글을 “사람답게” 만드는 범용 humanizer가 아니다. **이 사람의 글에서 AI 티만 걷고, 이 사람이 일부러 쓰는 말은 남기는** 퇴고 스킬을 만드는 절차다.
 
-동료 각자가 자기 말투 스킬을 갖는 것이 목표다. 사람이 읽을 안내는 [README.md](README.md). 커맨드로 들어왔을 때의 진입 규칙은 [commands/말투.md](commands/말투.md), 평가 실행은 [commands/말투-평가.md](commands/말투-평가.md).
+동료 각자가 자기 말투 스킬을 갖는 것이 목표다. 사람이 읽을 안내는 [README.md](README.md). 커맨드로 들어왔을 때의 진입 규칙은 [commands/말투-만들기.md](commands/말투-만들기.md), 평가 실행은 [commands/말투-평가.md](commands/말투-평가.md).
 
-이 저장소에는 완성된 개인 스킬을 두지 않는다. 산출은 각자 개인 폴더에 생긴다 — 남의 말투를 정본처럼 섞지 않기 위해서다.
+이 저장소에는 완성된 개인 스킬을 두지 않는다. 산출은 각자 개인 폴더에 생긴다. 남의 말투를 정본처럼 섞지 않기 위해서다.
 
-성공 create의 Input/Output: [examples.md](examples.md). 대조 절차: [references/contrast-mining.md](references/contrast-mining.md). 시드(필터 재료): [references/seed-tells.md](references/seed-tells.md). 평가셋 4축: [references/eval-protocol.md](references/eval-protocol.md). eval을 실제로 돌리는 법: [eval/RUN.md](eval/RUN.md). 생성 스킬 골격: [references/skill-anatomy.md](references/skill-anatomy.md). 설계 출처: [references/community-lessons.md](references/community-lessons.md).
+참고 문서는 **필요한 단계에서** 연다. 처음부터 다 읽지 않는다.
+
+| 언제 | 무엇 |
+|---|---|
+| 시작 전 한 번 | [examples.md](examples.md) — 성공 create의 Input/Output 한 쌍 |
+| 1. 대조할 때 | [references/contrast-mining.md](references/contrast-mining.md) · 시드 이름이 필요하면 [references/seed-tells.md](references/seed-tells.md) |
+| 2. 초안 쓸 때 | [templates/SKILL.md](templates/SKILL.md) · 넣으면 안 되는 것 [references/skill-anatomy.md](references/skill-anatomy.md) |
+| 3. 평가셋 만들 때 | [templates/eval/README.md](templates/eval/README.md) — 4축·라벨·합격선 정본 |
+| 실제로 돌릴 때 | [eval/RUN.md](eval/RUN.md) — 실행 규율·프롬프트 골격 |
+| 두 eval이 헷갈릴 때 | [references/eval-protocol.md](references/eval-protocol.md) |
+| 설계 근거가 궁금할 때 | [references/community-lessons.md](references/community-lessons.md) |
 
 ## 이 스킬이 아닌 것
 
-- 글을 지금 고치는 일 → 그 사람이 이미 가진 퇴고 스킬을 쓴다.
 - 범용 “AI 냄새 50개 목록” 스킬을 한 번에 심는 일 → 만들지 않는다.
 - 화면 미감(색·폰트·레이아웃) → 여기 미감은 **문장 호흡·단락·구두점·만질 수 있는 비유**다.
 - 탐지기 점수 올리기·우회 → 범위 밖.
@@ -29,7 +38,7 @@ metadata:
 1. **평가셋이 스킬보다 먼저다.** 실패하는 시험 없이 SKILL.md를 확정하지 않는다. 얇은 초안은 한 편 시험과 같이 쓰고, 평가셋 4개 없이 v1을 선언하지 않는다.
 2. **냄새와 함정을 가른다.** 같은 표면형도 문맥에 따라 보존일 수 있다. 저자가 확정한 보존 표현은 함정이다. 잡으면 즉시 실패.
 3. **금칙어 목록을 본체로 두지 않는다.** 구조·남용·문맥이 본체이고, 단어는 신호일 뿐이다.
-4. **실제 글이 이기고, 추구 문체는 확인받는다.** “김훈처럼”이 평소와 충돌하면 묻고, 답 없이 씌우지 않는다.
+4. **실제 글이 이기고, 추구하는 문체는 확인받는다.** 평소와 충돌하면 묻고, 답 없이 씌우지 않는다.
 5. **지어내지 않는다.** 사람 냄새를 낸다고 사실·숫자·인용·고유명사를 보태지 않는다.
 6. **샘플은 저자가 낸다.** 경로를 사용자가 집지 않았으면 저장소를 뒤져 고르지 않는다. 붙여 넣거나 이 창에 직접 쓰게 한다.
 7. **한 턴에 질문 하나.** 쓰임새·글·함정·시험 초안을 한 번에 묻지 않는다. 답이 오기 전에 다음으로 가지 않는다.
@@ -102,8 +111,7 @@ create가 시작됐는데 쓰임새가 아직 없으면 **이 질문만** 하고
 4. 강의·미션·LMS 안내
 5. 보고서·위키·업무 문서
 6. 책·긴 원고
-7. 유튜브·대본
-8. 기타 (한 줄로)
+7. 기타 (한 줄로)
 
 고른 값이 장르·문체 잠금과 호출어의 재료가 된다. 호출어는 따로 묻지 말고, 쓰임새에서 만든다 (예: 2 → “공지 말투”, “운영 안내처럼”).
 
@@ -122,7 +130,7 @@ create가 시작됐는데 쓰임새가 아직 없으면 **이 질문만** 하고
 
 키워드·인사말·문장 두 개면 그 맥락의 글을 다시 달라고만 한다. 빈 골격을 부풀리지 않는다.
 
-**추구 문체**는 아직 묻지 않는다. 프로필을 보여 준 뒤에, 평소와 충돌할 때만 한 줄로 묻는다.
+**추구하는 문체**는 아직 묻지 않는다. 프로필을 보여 준 뒤에, 평소와 충돌할 때만 한 줄로 묻는다.
 
 ### 1. 대조 → STYLE-PROFILE.md
 
@@ -136,7 +144,7 @@ create가 시작됐는데 쓰임새가 아직 없으면 **이 질문만** 하고
 - AI 초안이 손대려 하고 본인은 남기는 것 → **함정 후보**
 - 본인이 고친 것, 또는 샘플에 거의 안 나오는데 AI 초안에만 있는 것 → **냄새 후보**
 
-추구 문체가 평소 글과 다르면 충돌 표를 만들고 저자에게 확인한다. 확인 전엔 평소 글을 기본값으로 둔다.
+추구하는 문체가 평소 글과 다르면 충돌 표를 만들고 저자에게 확인한다. 확인 전엔 평소 글을 기본값으로 둔다.
 
 #### 함정 확인 — 세 번까지만 묻는다
 
@@ -154,7 +162,7 @@ create가 시작됐는데 쓰임새가 아직 없으면 **이 질문만** 하고
 
 ### 2. 얇은 초안 + 저자의 초안 1편 시험
 
-[templates/SKILL.md](templates/SKILL.md)를 복사하되, 지금은 체크리스트 2~4행만 채운다. 행은 1에서 살아남은 것만. 필수 절(적용/보류, 가드레일, 출력, 재통독)은 뼈대만 남긴다.
+[templates/SKILL.md](templates/SKILL.md)를 복사하되, 지금은 체크리스트 2~4행만 채운다. 행은 1에서 살아남은 것만. 필수 절(적용/보류, 가드레일, 출력, 재통독)은 뼈대만 남긴다. 넣으면 안 되는 것은 [references/skill-anatomy.md](references/skill-anatomy.md).
 
 시험 재료는 저자가 낸, 지금 고치고 싶은 초안이다. 아직 없으면 **그것만** 달라고 하고 만든다. 받은 뒤에 before/after와 변경 기록을 보여 준다. 글 1편(0b)과 시험 초안을 한 턴에 같이 받지 않는다.
 
@@ -164,7 +172,7 @@ create가 시작됐는데 쓰임새가 아직 없으면 **이 질문만** 하고
 
 한 편 시험 뒤에 평가셋 4개를 만들고, 틀린 축 하나만 고쳐 다시 돈다. 글 3편을 미리 받지 않는다. 더 필요하면 그 맥락의 글을 **한 편씩** 달라고 한다.
 
-[references/eval-protocol.md](references/eval-protocol.md)와 [templates/eval/](templates/eval/)을 따른다. 최소 구성:
+[templates/eval/](templates/eval/)을 복사해 채운다. 4축·라벨·합격선의 정본은 [templates/eval/README.md](templates/eval/README.md)다. 최소 구성:
 
 | 케이스 | 축 | 역할 |
 |---|---|---|
@@ -250,7 +258,7 @@ description에는 하는 일과 켜지는 상황을 함께, 3인칭으로 적는
 - 평가셋 없이 SKILL.md를 확정한다 → 한 편 시험은 초안용이고, 4개 없이 v1이 아니다.
 - **케이스를 쓴 에이전트가 정답 파일까지 써서 `grade.py`를 돌리고 통과라고 한다** → 자기 답을 자기가 채점한 것이다. [eval/RUN.md](eval/RUN.md).
 - 평소 글의 대시·짧은 문장·입버릇을 AI 티로 지운다 → 그건 목소리다. 함정.
-- 추구 문체를 확인 없이 씌운다 → 다른 사람 흉내 스킬이 된다.
+- 추구하는 문체를 확인 없이 씌운다 → 다른 사람 흉내 스킬이 된다.
 - 적용을 기본으로 두고 경계까지 고친다 → 오탐이 본문을 훼손한다.
 - 사람 냄새를 위해 구체적인 사실을 보탠다 → 금지.
 - 남의 스킬 폴더를 덮어쓴다 → 새 이름, 새 버전 라벨.
